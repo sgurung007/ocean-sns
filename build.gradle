@@ -19,6 +19,12 @@ repositories {
 }
 
 dependencies {
+    // https://mvnrepository.com/artifact/io.awspring.cloud/spring-cloud-aws-sqs
+    implementation 'io.awspring.cloud:spring-cloud-aws-sqs:3.0.0-RC1'
+// https://mvnrepository.com/artifact/io.awspring.cloud/spring-cloud-aws-autoconfigure
+    implementation 'io.awspring.cloud:spring-cloud-aws-autoconfigure:3.0.0-RC1'
+
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
