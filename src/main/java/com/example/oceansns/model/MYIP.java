@@ -1,25 +1,16 @@
 package com.example.oceansns.model;
 
-import org.springframework.stereotype.Component;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Component
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class MYIP {
-    private String IP="defult";
-    private boolean updated=false;
+    private String IP;
+    private boolean updated;
 
-    public String getIP() {
-        return IP;
-    }
-
-    public void setIP(String IP) {
-        this.IP = IP;
-    }
-
-    public boolean isUpdated() {
-        return updated;
-    }
-
-    public void setUpdated(boolean updated) {
-        this.updated = updated;
-    }
 }

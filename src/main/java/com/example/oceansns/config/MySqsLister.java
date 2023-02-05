@@ -1,16 +1,17 @@
 package com.example.oceansns.config;
 
-import com.example.oceansns.model.MYIP;
+import com.example.oceansns.config.annotation.SurajSqsListener;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.messaging.Message;
+import org.springframework.stereotype.Component;
 
 
 @Slf4j
-@Configuration
+@Component
 public class MySqsLister {
-    @Autowired
-    private MYIP myip;
 
-
+    @SurajSqsListener
+    void listen(Message<?> message){
+        log.info("body: {}",message.getPayload());
+    }
 }
