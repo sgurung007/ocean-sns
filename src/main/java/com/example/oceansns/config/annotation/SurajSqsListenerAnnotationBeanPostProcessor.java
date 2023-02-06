@@ -35,9 +35,9 @@ public class SurajSqsListenerAnnotationBeanPostProcessor extends SurajAbstractLi
 	}
 
 	protected Endpoint createEndpoint(SurajSqsListener surajSqsListenerAnnotation) {
-		Set<String> queueList = new HashSet<>();
-		queueList.add(SURAJ_QUEUENAME);
-		return SqsEndpoint.builder().queueNames(queueList)
+		Set<String> queueSet = new HashSet<>();
+		queueSet.add(SURAJ_QUEUENAME);
+		return SqsEndpoint.builder().queueNames(queueSet)
 //				.factoryBeanName(resolveAsString(surajSqsListenerAnnotation.factory(), "factory"))
 				.id(getEndpointId(surajSqsListenerAnnotation.id()))
 				.pollTimeoutSeconds(resolveAsInteger(surajSqsListenerAnnotation.pollTimeoutSeconds(), "pollTimeoutSeconds"))

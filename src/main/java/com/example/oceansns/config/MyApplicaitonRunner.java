@@ -7,9 +7,9 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import software.amazon.awssdk.services.sqs.SqsAsyncClient;
-import software.amazon.awssdk.services.sqs.model.CreateQueueRequest;
-import software.amazon.awssdk.services.sqs.model.CreateQueueResponse;
+import software.amazon.awssdk.services.sqs.model.*;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 @Component
@@ -28,6 +28,17 @@ public class MyApplicaitonRunner implements ApplicationRunner {
                 .build());
         CreateQueueResponse createQueueResponse = queue.get();
         log.debug("created queue info: {}", createQueueResponse);
+
+        ReceiveMessageRequest receiveMessageRequest = ReceiveMessageRequest.builder().queueUrl(myip.getIP()).waitTimeSeconds(1).build();
+        CompletableFuture<ReceiveMessageResponse> receiveMessageResponseCompletableFuture = sqsAsyncClient.receiveMessage(receiveMessageRequest);
+        ReceiveMessageResponse receiveMessageResponse = receiveMessageResponseCompletableFuture.get();
+        List<Message> messages = receiveMessageResponse.messages();
+
+        for (Message message:messages){
+
+        }
+
+
     }
 
 

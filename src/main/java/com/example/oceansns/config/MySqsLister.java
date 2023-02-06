@@ -13,5 +13,6 @@ public class MySqsLister {
     @SurajSqsListener
     void listen(Message<?> message){
         log.info("body: {}",message.getPayload());
+        log.info("header: {}",message.getHeaders());
     }
 }
