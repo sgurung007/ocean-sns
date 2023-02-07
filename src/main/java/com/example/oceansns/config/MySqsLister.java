@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class MySqsLister {
 
     @SurajSqsListener
-    void listen(Message<?> message){
-        log.info("body: {}",message.getPayload());
+    void listen(Message<?> message) {
+        log.info("body: {}", message.getPayload());
     }
 }

@@ -26,8 +26,6 @@ public class MyApplicaitonRunner implements ApplicationRunner {
         CompletableFuture<CreateQueueResponse> queue = sqsAsyncClient.createQueue(CreateQueueRequest.builder()
                 .queueName(myip.getIP())
                 .build());
-//        CreateQueueResponse createQueueResponse = queue.get();
-//        log.debug("created queue info: {}", createQueueResponse);
     }
 
 
